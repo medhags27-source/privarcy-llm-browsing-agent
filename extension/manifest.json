@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Privacy-Preserving LLM Browsing Agent",
+  "version": "1.0.0",
+  "description": "Privacy-aware AI browsing agent with PII protection.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_title": "Privacy Agent"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }
+]
+
+}
