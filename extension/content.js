@@ -1,4 +1,14 @@
 console.log("Privacy Agent content script loaded");
 
-console.log("Page title:", document.title);
-console.log("Page text length:", document.body.innerText.length);
+const pageData = {
+  title: document.title,
+  content: document.body.innerText
+};
+
+console.log("Page title:", pageData.title);
+console.log("Page text length:", pageData.content.length);
+
+chrome.runtime.sendMessage({
+  type: "PAGE_DATA",
+  data: pageData
+});
